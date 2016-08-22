@@ -49,3 +49,30 @@ function primeFactors (range) {
 	}
 }
 
+
+function isPalindrome (range) {
+	var palindrome = parseInt(range.toString().split('').reverse().join(''));
+	
+	if (palindrome === range) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+function largestPalindromeProduct () {
+	var range = prompt("Please enter the highest number integer. This function will return any palindromes below it. I.e. 3 digit palindrome product you would type 999.")
+	var x = range;
+	var y = range;
+	product = x * y;
+	
+	for (x; x > (range - 100); x--) {
+		for (y = x; y > (range - 100); y--) {
+			product = x * y;
+			if (isPalindrome(product)) {
+				console.log(x + "*" + y + "=" + product);
+			}
+		}
+	}
+}
